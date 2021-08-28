@@ -25,9 +25,12 @@ pipeline {
            steps {
               
                 sh 'docker build -t sampleweb:latv01 .' 
-                sh 'docker tag samplewebapp ashishut/samplewebap:latta'
+                sh 'docker tag samplewebapp ashishut/samplewebap:latass'
                 //sh 'docker tag samplewebapp ashishut/samplewebapp:$V1.1.01'
-               
+               script {
+                    env.FILENAME = readFile 'output.txt'
+                }
+                echo "${env.FILENAME}"
           }
         }
      
