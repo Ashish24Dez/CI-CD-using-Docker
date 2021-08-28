@@ -29,7 +29,7 @@ pipeline {
                 //sh 'docker tag samplewebapp ashishut/samplewebapp:$L_1_01'
               
         }
-     
+  }
   stage('Publish image to Docker Hub') {
           
             steps {
@@ -56,4 +56,5 @@ pipeline {
             }
         }
     }
+ }
 }
