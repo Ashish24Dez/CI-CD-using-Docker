@@ -33,7 +33,7 @@ pipeline {
   stage('Publish image to Docker Hub') {
           
             steps {
-       withDockerRegistry(url: 'https://hub.docker.com/repository/docker/ashishut/appdep') {
+       withDockerRegistry(credentialsId: '46e65d3d-5b03-4e93-aef3-6e8fdf58ef1f', url: 'https://hub.docker.com/repository/docker/ashishut/appdep') {
        sh 'sudo docker push sampleweb:V1.1.latest'
 }
                   
