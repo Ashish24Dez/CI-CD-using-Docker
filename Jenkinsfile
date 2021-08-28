@@ -34,8 +34,8 @@ pipeline {
   stage('Publish image to Docker Hub') {
           
             steps {
-       withDockerRegistry(credentialsId: '3d36c726-8563-479d-9af7-035ade8d1dc5', url: 'https://hub.docker.com/repository/docker/ashishut/appdep') {
-// some block
+       withDockerRegistry(credentialsId: '46e65d3d-5b03-4e93-aef3-6e8fdf58ef1f', url: 'https://hub.docker.com/repository/docker/ashishut/') {
+       sh 'docker push ashishut/appdep:latta'
 }
                   
           }
