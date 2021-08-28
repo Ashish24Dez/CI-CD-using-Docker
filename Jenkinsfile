@@ -34,10 +34,9 @@ pipeline {
   stage('Publish image to Docker Hub') {
           
             steps {
-        withDockerRegistry([ credentialsId: "dockerHub", url: "https://hub.docker.com/repository/docker/ashishut/appdep" ]) {
-          sh  'docker push ashishut/samplewebapp:latest'
-        //  sh  'docker push ashishut/samplewebapp:$BUILD_NUMBER' 
-        }
+        withDockerRegistry(credentialsId: 'dockerHub', toolName: 'Docker', url: 'https://hub.docker.com/repository/docker/ashishut/') {
+    // some block
+}
                   
           }
         }
