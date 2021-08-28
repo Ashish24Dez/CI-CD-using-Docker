@@ -25,7 +25,7 @@ pipeline {
            steps {
               
                 sh 'docker build -t samplewebapp:latest .' 
-                sh 'docker tag samplewebapp ashishut/samplewebapp:latest'
+                sh 'docker tag samplewebapp appdep/samplewebapp:latest'
                 //sh 'docker tag samplewebapp ashishut/samplewebapp:$BUILD_NUMBER'
                
           }
@@ -35,8 +35,8 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) {
-          sh  'docker push ashishut/samplewebapp:latest'
-        //  sh  'docker push ashishut/samplewebapp:$BUILD_NUMBER' 
+          sh  'docker push appdep/samplewebapp:latest'
+        //  sh  'docker push appdep/samplewebapp:$BUILD_NUMBER' 
         }
                   
           }
@@ -46,14 +46,14 @@ pipeline {
              
             steps 
 			{
-                sh "docker run -d -p 8003:8080 ashishut/samplewebapp"
+                sh "docker run -d -p 8003:8080 appdep/samplewebapp"
  
             }
         }
  stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://jenkins@172.31.28.25 run -d -p 8003:8080 ashishut/samplewebapp"
+                sh "docker -H ssh://jenkins@172.31.28.25 run -d -p 8003:8080 appdep/samplewebapp"
  
             }
         }
